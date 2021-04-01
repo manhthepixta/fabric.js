@@ -24979,6 +24979,13 @@ fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
     deltaY: 0,
 
     /**
+     * Text is vertical or not
+     * @type Boolean
+     * @default
+     */
+    verticalMode: false,
+
+    /**
      * Array of properties that define a style unit (of 'styles').
      * @type {Array}
      * @default
@@ -25677,6 +25684,13 @@ fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
       }
       if (decl && decl.deltaY) {
         top += decl.deltaY;
+      }
+
+      // Add indent for special Japanese characters
+      var fontSize = fullDecl.fontSize;
+      var leftOffset = fontSize * 0.6;
+      if (this.verticalMode && _char.match(/[、。]/)) {
+        left += leftOffset;
       }
 
       shouldFill && ctx.fillText(_char, left, top);
