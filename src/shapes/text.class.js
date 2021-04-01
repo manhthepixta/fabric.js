@@ -978,11 +978,16 @@
       }
 
       // Add indent for special Japanese characters
-      var regex = /[、。ぁぃぅぇぉっゃゅょゎァィゥェォッャュョヮ]/;
+      var symbolRegex = /[、。]/;
+      var halfSizeRegex = /[ぁぃぅぇぉっゃゅょゎァィゥェォッャュョヮ]/;
       var fontSize = fullDecl.fontSize;
       var offset = fontSize * 0.6;
-      if (this.verticalMode && _char.match(regex)) {
+      if (this.verticalMode && _char.match(symbolRegex)) {
         left += offset;
+        top -= offset;
+      }
+      if (this.verticalMode && _char.match(halfSizeRegex)) {
+        left += offset * 0.4;
         top -= offset;
       }
 
