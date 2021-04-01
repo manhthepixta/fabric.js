@@ -25688,9 +25688,10 @@ fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
 
       // Add indent for special Japanese characters
       var fontSize = fullDecl.fontSize;
-      var leftOffset = fontSize * 0.6;
+      var offset = fontSize * 0.6;
       if (this.verticalMode && _char.match(/[、。]/)) {
-        left += leftOffset;
+        left += offset;
+        top -= offset;
       }
 
       shouldFill && ctx.fillText(_char, left, top);
