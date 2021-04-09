@@ -25697,7 +25697,7 @@ fabric.Image.filters.BaseFilter.fromObject = function(object, callback) {
       }
       if (this.verticalMode && _char.match(halfSizeRegex)) {
         left += offset * 0.3;
-        top -= offset * 0.6;
+        top -= offset * 0.4;
       }
 
       shouldFill && ctx.fillText(_char, left, top);
