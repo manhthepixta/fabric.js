@@ -892,6 +892,10 @@
       return this;
     },
 
+    resetPointer: function() {
+      this._resetTransformEventData();
+    },
+
     /**
      * Calculate the position of the 4 corner of canvas with current viewportTransform.
      * helps to determinate when an object is in the current rendering viewport using
